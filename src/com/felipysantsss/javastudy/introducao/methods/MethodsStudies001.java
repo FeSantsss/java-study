@@ -72,6 +72,8 @@ public class MethodsStudies001 {
 
 
     public static void main(String[] args){
+
         menu();
+
     }
 }
