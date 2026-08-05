@@ -7,6 +7,10 @@ public class POOStudies01 {
         Car myCar = new Car("gray", "civic", 6.0);
 
         System.out.println(myCar);
+        System.out.println(myCar.getColor());
+        myCar.setModel("Ferrari");
+        myCar.setEngine(8.0);
+        System.out.println(myCar);
 
     }
 
