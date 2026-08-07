@@ -1,14 +1,12 @@
 package com.felipysantsss.javastudy.introducao.POO.entities;
 
-public class Car {
+public class Car extends Vehicle {
     private String color;
-    private String model;
     private double engine;
 
-
-    public Car(String color, String model, double engine) {
+    public Car(String brand, String model, String color, double engine) {
+        super(brand, model);
         this.color = color;
-        this.model = model;
         this.engine = engine;
     }
 
@@ -20,14 +18,6 @@ public class Car {
         this.color = color;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public double getEngine() {
         return engine;
     }
@@ -37,7 +27,15 @@ public class Car {
     }
 
     @Override
+    public void start(){
+        super.start();
+        System.out.println("Car is starting");
+        System.out.println("Rommmm...");
+    }
+
+    @Override
     public String toString() {
-        return "model: " + getModel() + ", color: " + getColor() + ", engine: " + getEngine();
+        return "model: " + getModel() + ", color: " + getColor() +
+                ", engine: " + getEngine() + ", brand: " + getBrand();
     }
 }
