@@ -28,5 +28,8 @@ public class Vehicle {
     public void start(){
         System.out.println("Starting vehicle...");
     }
+    public static void bibi(){
+        System.out.println("BIBIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!");
+    }
 
 }

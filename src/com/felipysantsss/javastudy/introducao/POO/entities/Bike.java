@@ -1,7 +1,7 @@
 package com.felipysantsss.javastudy.introducao.POO.entities;
 
 public class Bike extends Vehicle{
-    protected double maxSpeed;
+    private final double maxSpeed;
 
     public Bike(String brand, String model, double maxSpeed) {
         super(brand, model);
@@ -10,10 +10,6 @@ public class Bike extends Vehicle{
 
     public double getMaxSpeed() {
         return maxSpeed;
-    }
-
-    public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed = maxSpeed;
     }
 
     @Override
