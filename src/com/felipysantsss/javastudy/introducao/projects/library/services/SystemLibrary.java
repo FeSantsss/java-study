@@ -39,12 +39,13 @@ public class SystemLibrary {
                 System.out.println("Choice a valid value!");
             }
 
-            doChoice(choice, sc, reader, books);
+            reader = doChoice(choice, sc, reader, books);
         } while (choice != 0);
+        sc.close();
         System.out.println("Ty for this!");
     }
 
-    private static void doChoice(int choice ,Scanner input, Reader reader, List<Book> books){
+    private static Reader doChoice(int choice ,Scanner input, Reader reader, List<Book> books){
 
         if (choice == 1 && reader != null){
             throw new AlreadyHaveAReaderException("Already exist a reader!");
@@ -170,8 +171,8 @@ public class SystemLibrary {
                 reader.removeBook(bookToReturn);
                 bookToReturn.setReader(null);
 
-            input.close();
             }
         }
+        return reader;
     }
 }

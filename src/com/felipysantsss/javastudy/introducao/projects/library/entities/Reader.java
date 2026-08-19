@@ -2,11 +2,12 @@ package com.felipysantsss.javastudy.introducao.projects.library.entities;
 
 import com.felipysantsss.javastudy.introducao.projects.library.exceptions.DontHaveBooksException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reader {
     private String name;
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -47,7 +48,7 @@ public class Reader {
     @Override
     public String toString() {
         if (books.isEmpty()){
-            return "Reader: " + name + "Books: Don't have books yet";
+            return "Reader: " + name + " - Books: Don't have books yet";
         }
         return "Reader: " + name + "Books: " + books.toString();
     }
