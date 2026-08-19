@@ -1,5 +1,9 @@
 package com.felipysantsss.javastudy.introducao.projects.library.entities;
 
+import com.felipysantsss.javastudy.introducao.projects.library.exceptions.DontExistAvailableBooksException;
+
+import java.util.Objects;
+
 public class Book {
     private String title;
     private String description;
@@ -34,16 +38,15 @@ public class Book {
         this.description = description;
     }
 
-    public void bookAvailable(Reader theReaderThatWantTheBook){
+    public boolean isAvailable(){
         if (reader != null){
-            System.out.println("The " + title + " isn't available!");
-            return;
+            return false;
         }
-        System.out.println("The " + title + " is available.");
+        return true;
     }
     public void rentBook(Reader theReaderThatWantTheBook){
         if (reader != null){
-            System.out.println("The " + title + " isn't available! Try again later.");
+            throw new DontExistAvailableBooksException("The " + title + " isn't available! Try again later.");
         }
         setReader(theReaderThatWantTheBook);
         System.out.println("Ok! This book is your now.");
@@ -59,5 +62,17 @@ public class Book {
     @Override
     public String toString() {
         return "Book: " + title + " - Description: " + description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(title, book.title) && Objects.equals(description, book.description) && Objects.equals(reader, book.reader);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description, reader);
     }
 }
